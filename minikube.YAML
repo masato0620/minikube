@@ -1,0 +1,164 @@
+{\rtf1\ansi\ansicpg932\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 kind: Deployment\
+apiVersion: apps/v1\
+metadata:\
+  name: nginx-deployment\
+  namespace: default\
+  uid: 903c57c9-d51c-4a63-9c45-3835402b2f3a\
+  resourceVersion: '2785'\
+  generation: 13\
+  creationTimestamp: '2022-10-17T05:36:20Z'\
+  annotations:\
+    deployment.kubernetes.io/revision: '7'\
+    kubectl.kubernetes.io/last-applied-configuration: >\
+      \{"apiVersion":"apps/v1","kind":"Deployment","metadata":\{"annotations":\{\},"name":"nginx-deployment","namespace":"default"\},"spec":\{"replicas":4,"selector":\{"matchLabels":\{"app":"nginx"\}\},"template":\{"metadata":\{"labels":\{"app":"nginx"\}\},"spec":\{"containers":[\{"image":"nginx:1.14.2","name":"nginx","ports":[\{"containerPort":80\}]\}]\}\}\}\}\
+  managedFields:\
+    - manager: kubectl-client-side-apply\
+      operation: Update\
+      apiVersion: apps/v1\
+      time: '2022-10-17T05:58:32Z'\
+      fieldsType: FieldsV1\
+      fieldsV1:\
+        f:metadata:\
+          f:annotations:\
+            .: \{\}\
+            f:kubectl.kubernetes.io/last-applied-configuration: \{\}\
+        f:spec:\
+          f:progressDeadlineSeconds: \{\}\
+          f:revisionHistoryLimit: \{\}\
+          f:selector: \{\}\
+          f:strategy:\
+            f:rollingUpdate:\
+              .: \{\}\
+              f:maxUnavailable: \{\}\
+            f:type: \{\}\
+          f:template:\
+            f:metadata:\
+              f:labels:\
+                .: \{\}\
+                f:app: \{\}\
+            f:spec:\
+              f:containers:\
+                k:\{"name":"nginx"\}:\
+                  .: \{\}\
+                  f:image: \{\}\
+                  f:imagePullPolicy: \{\}\
+                  f:name: \{\}\
+                  f:ports:\
+                    .: \{\}\
+                    k:\{"containerPort":80,"protocol":"TCP"\}:\
+                      .: \{\}\
+                      f:containerPort: \{\}\
+                      f:protocol: \{\}\
+                  f:resources: \{\}\
+                  f:terminationMessagePath: \{\}\
+                  f:terminationMessagePolicy: \{\}\
+              f:dnsPolicy: \{\}\
+              f:restartPolicy: \{\}\
+              f:schedulerName: \{\}\
+              f:securityContext: \{\}\
+              f:terminationGracePeriodSeconds: \{\}\
+    - manager: dashboard\
+      operation: Update\
+      apiVersion: apps/v1\
+      time: '2022-10-17T06:04:09Z'\
+      fieldsType: FieldsV1\
+      fieldsV1:\
+        f:spec:\
+          f:replicas: \{\}\
+          f:strategy:\
+            f:rollingUpdate:\
+              f:maxSurge: \{\}\
+    - manager: kube-controller-manager\
+      operation: Update\
+      apiVersion: apps/v1\
+      time: '2022-10-17T06:04:10Z'\
+      fieldsType: FieldsV1\
+      fieldsV1:\
+        f:metadata:\
+          f:annotations:\
+            f:deployment.kubernetes.io/revision: \{\}\
+        f:status:\
+          f:availableReplicas: \{\}\
+          f:conditions:\
+            .: \{\}\
+            k:\{"type":"Available"\}:\
+              .: \{\}\
+              f:lastTransitionTime: \{\}\
+              f:lastUpdateTime: \{\}\
+              f:message: \{\}\
+              f:reason: \{\}\
+              f:status: \{\}\
+              f:type: \{\}\
+            k:\{"type":"Progressing"\}:\
+              .: \{\}\
+              f:lastTransitionTime: \{\}\
+              f:lastUpdateTime: \{\}\
+              f:message: \{\}\
+              f:reason: \{\}\
+              f:status: \{\}\
+              f:type: \{\}\
+          f:observedGeneration: \{\}\
+          f:readyReplicas: \{\}\
+          f:replicas: \{\}\
+          f:updatedReplicas: \{\}\
+      subresource: status\
+spec:\
+  replicas: 5\
+  selector:\
+    matchLabels:\
+      app: nginx\
+  template:\
+    metadata:\
+      creationTimestamp: null\
+      labels:\
+        app: nginx\
+    spec:\
+      containers:\
+        - name: nginx\
+          image: nginx:1.14.2\
+          ports:\
+            - containerPort: 80\
+              protocol: TCP\
+          resources: \{\}\
+          terminationMessagePath: /dev/termination-log\
+          terminationMessagePolicy: File\
+          imagePullPolicy: IfNotPresent\
+      restartPolicy: Always\
+      terminationGracePeriodSeconds: 30\
+      dnsPolicy: ClusterFirst\
+      securityContext: \{\}\
+      schedulerName: default-scheduler\
+  strategy:\
+    type: RollingUpdate\
+    rollingUpdate:\
+      maxUnavailable: 25%\
+      maxSurge: 60%\
+  revisionHistoryLimit: 10\
+  progressDeadlineSeconds: 600\
+status:\
+  observedGeneration: 13\
+  replicas: 5\
+  updatedReplicas: 5\
+  readyReplicas: 5\
+  availableReplicas: 5\
+  conditions:\
+    - type: Progressing\
+      status: 'True'\
+      lastUpdateTime: '2022-10-17T05:58:38Z'\
+      lastTransitionTime: '2022-10-17T05:36:20Z'\
+      reason: NewReplicaSetAvailable\
+      message: ReplicaSet "nginx-deployment-7fb96c846b" has successfully progressed.\
+    - type: Available\
+      status: 'True'\
+      lastUpdateTime: '2022-10-17T06:04:10Z'\
+      lastTransitionTime: '2022-10-17T06:04:10Z'\
+      reason: MinimumReplicasAvailable\
+      message: Deployment has minimum availability.\
+}
